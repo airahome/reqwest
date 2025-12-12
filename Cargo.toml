@@ -48,6 +48,7 @@ native-tls-alpn = ["native-tls", "native-tls-crate?/alpn", "hyper-tls?/alpn"]
 native-tls-vendored = ["native-tls", "native-tls-crate?/vendored"]
 
 rustls-tls = ["rustls-tls-webpki-roots"]
+rustls-tls-aws-lc-rs = ["rustls-tls-webpki-roots-aws-lc-rs"]
 rustls-tls-no-provider = ["rustls-tls-manual-roots-no-provider"]
 
 rustls-tls-manual-roots-no-provider = ["__rustls"]
@@ -56,6 +57,7 @@ rustls-tls-native-roots-no-provider = ["dep:rustls-native-certs", "hyper-rustls?
 
 rustls-tls-manual-roots = ["rustls-tls-manual-roots-no-provider", "__rustls-ring"]
 rustls-tls-webpki-roots = ["rustls-tls-webpki-roots-no-provider", "__rustls-ring"]
+rustls-tls-webpki-roots-aws-lc-rs = ["rustls-tls-webpki-roots-no-provider", "__rustls-aws-lc-rs"]
 rustls-tls-native-roots = ["rustls-tls-native-roots-no-provider", "__rustls-ring"]
 
 blocking = ["dep:futures-channel", "futures-channel?/sink", "dep:futures-util", "futures-util?/io", "futures-util?/sink", "tokio/sync"]
@@ -104,6 +106,7 @@ __tls = ["dep:rustls-pki-types", "tokio/io-util"]
 # Equivalent to rustls-tls-manual-roots but shorter :)
 __rustls = ["dep:hyper-rustls", "dep:tokio-rustls", "dep:rustls", "__tls"]
 __rustls-ring = ["hyper-rustls?/ring", "tokio-rustls?/ring", "rustls?/ring", "quinn?/ring"]
+__rustls-aws-lc-rs = ["hyper-rustls?/aws-lc-rs", "tokio-rustls?/aws-lc-rs", "rustls?/aws-lc-rs", "quinn?/rustls-aws-lc-rs"]
 
 [dependencies]
 base64 = "0.22"
